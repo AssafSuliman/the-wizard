@@ -1,7 +1,7 @@
 let checked = [];
 document.querySelector(
   '.prev-page'
-).href = `${document.location.origin}/the-wizrd/phase-2/phase-2.html`;
+).href = `${document.location.origin}/the-wizard/phase-2/phase-2.html`;
 
 document.querySelector('button[type=submit]').addEventListener('click', e => {
   if (!checked.length) {
