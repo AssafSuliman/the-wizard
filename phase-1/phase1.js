@@ -1,5 +1,5 @@
 const continueBtn = document.querySelector('form')
-continueBtn.setAttribute('action', `${document.location.origin}/phase2/phase2`)
+continueBtn.setAttribute('action', `${document.location.origin}the-wizard/phase-2/phase-2.html`)
 continueBtn.addEventListener('submit', nextPage)
 const previousButton = document.querySelector('#previousButton')
 previousButton.setAttribute('href', `${document.location.origin}/the-wizard/entrance-screen/entrance.html`)
