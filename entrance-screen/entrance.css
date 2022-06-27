@@ -1,0 +1,23 @@
+@media (min-width: 1400px){
+    .container{
+        max-width:1140px
+    }
+}
+form{
+    display: flex;
+    flex-direction: column;
+    border: solid 2px grey;
+    margin:50px 0;
+    padding:30px;
+    border-radius: 5px;
+}
+form h3{
+    width:100%
+}
+label{
+    font-weight: bold;
+}
+.btn{
+    display: block;
+    margin-top: 20px;
+}
