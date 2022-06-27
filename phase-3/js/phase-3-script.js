@@ -1,8 +1,18 @@
 let checked = [];
+document.querySelector(
+  '.prev-page'
+).href = `${document.location.origin}/the-wizrd/phase-2/phase-2.html`;
 
 document.querySelector('button[type=submit]').addEventListener('click', e => {
-  if (!checked) {
-    return;
+  if (!checked.length) {
+    e.preventDefault();
+  } else {
+    console.log(checked);
+    const formAction = document.querySelector('form');
+    formAction.setAttribute(
+      'action',
+      `${document.location.origin}/Wizard/the-wizard/phase-4/phase-4.html`
+    );
   }
 });
 
