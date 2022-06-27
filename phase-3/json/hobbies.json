@@ -1,0 +1,71 @@
+[
+    {
+        "id": 1,
+        "hobbie": "Surfing"
+    },
+    {
+        "id": 2,
+        "hobbie": "3D printing"
+    },
+    {
+        "id": 3,
+        "hobbie": "Acrobatics"
+    },
+    {
+        "id": 4,
+        "hobbie": "Acting"
+    },
+    {
+        "id": 5,
+        "hobbie": "Amateur radio"
+    },
+    {
+        "id": 6,
+        "hobbie": "Animation"
+    },
+    {
+        "id": 7,
+        "hobbie": "Aquascaping"
+    },
+    {
+        "id": 8,
+        "hobbie": "Astrology"
+    },
+    {
+        "id": 9,
+        "hobbie": "Astronomy"
+    },
+    {
+        "id": 10,
+        "hobbie": "Baking"
+    },
+    {
+        "id": 11,
+        "hobbie": "Baton twirling"
+    },
+    {
+        "id": 12,
+        "hobbie": "Blogging"
+    },
+    {
+        "id": 13,
+        "hobbie": "Building"
+    },
+    {
+        "id": 14,
+        "hobbie": "Bowling"
+    },
+    {
+        "id": 15,
+        "hobbie": "Cheesemaking"
+    },
+    {
+        "id": 16,
+        "hobbie": "Cleaning"
+    },
+    {
+        "id": 17,
+        "hobbie": "Coffee roasting"
+    }
+
+]
