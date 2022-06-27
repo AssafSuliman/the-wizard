@@ -3,7 +3,11 @@ const body = document.querySelector("body")
 const previousBtn = document.querySelector("#previousBtn")
 previousBtn.setAttribute("href", `${document.location.origin}/the-wizard/phase-1/phase1.html`)
 
-const continueBtn = document.querySelector("#continueBtn").addEventListener("click", nextPageValidation)
+//const continueBtn = document.querySelector("#continueBtn").addEventListener("click", nextPageValidation)
+
+const form = document.querySelector('form')
+form.setAttribute('action', `${document.location.origin}/the-wizard/phase-3/phase-3.html`)
+form.addEventListener('submit', nextPageValidation)
 
 
 const streetNumInput = document.querySelector("#streetNum")
@@ -53,33 +57,51 @@ function removeError(span){
 function streetNumberValidation(){
     if(streetNumInput.value < 0 || streetNumInput.value == ""){
         showError(streetNumSpan)
+        return false
     } else {
         removeError(streetNumSpan)
+        return true
     }
 }
 
 function cityValidation(){
     if(selectCity.value == "notSelected"){
         showError(citySpan)
+        return false
     } else {
         removeError(citySpan)
+        return true
     }
 }
 
 function streetValidation(){
     if(streetNameInput.value == ""){
         showError(streetSpan)
+        return false
     } else {
         removeError(streetSpan)
+        return true
     }
 }
 
-function nextPageValidation(){
-    streetNumberValidation()
-    cityValidation()
-    streetValidation()
+// function nextPageValidation(){
+//     streetNumberValidation()
+//     cityValidation()
+//     streetValidation()
+// }
+
+
+
+function nextPageValidation(e){
+    const streetValid = streetNameInput()
+    const numberValid = streetNumberValidation()
+    const cityValid = cityValidation()
+    if(streetValid && numberValid && cityValid){
+        console.log("hello")
+    }
+    else{
+        e.preventDefault()
+    }
 }
-
-
 
 
