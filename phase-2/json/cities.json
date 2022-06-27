@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "Afula"
+    },
+    {
+        "id": 2,
+        "name": "Ashdod"
+    },
+    {
+        "id": 3,
+        "name": "Ashkelon"
+    },
+    {
+        "id": 4,
+        "name": "Bat Yam"
+    },
+    {
+        "id": 5,
+        "name": "Beersheba"
+    },
+    {
+        "id": 6,
+        "name": "Bnei Brak"
+    },
+    {
+        "id": 7,
+        "name": "Eilat"
+    },
+    {
+        "id": 8,
+        "name": "Givatayim"
+    },
+    {
+        "id": 9,
+        "name": "Haifa"
+    },
+    {
+        "id": 10,
+        "name": "Holon"
+    },
+    {
+        "id": 11,
+        "name": "Jerusalem"
+    },
+    {
+        "id": 12,
+        "name": "Kfar Saba"
+    },
+    {
+        "id": 13,
+        "name": "Kiryat Gat"
+    },
+    {
+        "id": 14,
+        "name": "Lod"
+    },
+    {
+        "id": 15,
+        "name": "Migdal HaEmek"
+    },
+    {
+        "id": 16,
+        "name": "Nahariya"
+    },
+    {
+        "id": 17,
+        "name": "Netanya"
+    },
+    {
+        "id": 18,
+        "name": "Ofakim"
+    },
+    {
+        "id": 19,
+        "name": "Petah Tikva"
+    },
+    {
+        "id": 20,
+        "name": "Ramat Gan"
+    },
+    {
+        "id": 21,
+        "name": "Ramla"
+    },
+    {
+        "id": 22,
+        "name": "Rehovot"
+    },
+    {
+        "id": 23,
+        "name": "Rishon LeZion"
+    },
+    {
+        "id": 24,
+        "name": "Sderot"
+    },
+    {
+        "id": 25,
+        "name": "Tel Aviv-Yafo"
+    },
+    {
+        "id": 26,
+        "name": "Tiberias"
+    },
+    {
+        "id": 27,
+        "name": "Tirat Carmel"
+    },
+    {
+        "id": 28,
+        "name": "Yavne"
+    },
+    {
+        "id": 29,
+        "name": "Yehud-Monosson"
+    },
+    {
+        "id": 30,
+        "name": "Yokneam Illit"
+    }
+]
