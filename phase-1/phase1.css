@@ -1,0 +1,35 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    border: solid 2px grey;
+    margin:50px 0;
+    padding:30px;
+    border-radius: 5px;
+    width: 500px;
+}
+#buttons{
+    margin-top:30px;
+    display: flex;
+    justify-content: space-between;
+
+}
+#first-input{
+    margin:0
+}
+.input-group{
+    margin-top: 30px;
+}
+img{
+    width: 35px;
+    height: 35px;
+}
+.hidden{
+    display: none;
+}
+.message{
+    color:red
+}

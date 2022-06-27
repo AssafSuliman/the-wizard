@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="phase1.css">
+</head>
+<body>
+    <form>
+          <div id="first-input" class="input-group">
+            <span class="input-group-text"><img src="name.png" alt=""></span>
+            <input id="first-name" type="text" required placeholder="First Name" aria-label="First name" class="form-control">
+            <input id="last-name" type="text" required placeholder="Last Name" aria-label="Last name" class="form-control">
+          </div>
+            <span id="nameMessage" class="hidden message">First or Last name isnt valid, it should contain at leats 2 letters each, no special letters<br></span>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"><img id="email-img" src="email.png" alt=""></span>
+            <input id="email" type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="addon-wrapping">
+          </div>
+          <span id="emailMessage" class="hidden message">Email not Valid!<br></span>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"><img id="date-img" src="date.png" alt=""></span>
+            <input id="birth-day" type="date" class="form-control" placeholder="Date" aria-label="Username" aria-describedby="addon-wrapping">
+          </div>
+          <span id="dateMessage" class="hidden message">Anyone with age lower than 18 can't sign up</span>
+          <div id="buttons">
+              <a id="previousButton">Previous Page</a>
+              <button id="continue-btn" type="submit" class="btn btn-primary">Continue</button>
+            </div>
+        </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="phase1.js"></script>
+</body>
+</html>
