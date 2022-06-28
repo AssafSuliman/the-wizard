@@ -1,4 +1,7 @@
-let checked = [];
+let didImageChange = false;
+let didCheckboxChange = false;
+
+let checked = localStorage.getItem('checkedHobbies') || [];
 let imageUrl;
 
 window.addEventListener('load', e => {
@@ -14,7 +17,19 @@ document.querySelector('button[type=submit]').addEventListener('click', e => {
     e.preventDefault();
   } else {
     console.log(document.querySelector('#preview').src);
-    setPhase3(imageUrl, checked);
+    if (didCheckboxChange && didImageChange) {
+      setPhase3(imageUrl, checked);
+    } else if (didCheckboxChange && !didImageChange) {
+      setPhase3(JSON.parse(localStorage.getItem('image')), checked);
+    } else if (!didCheckboxChange && didImageChange) {
+      setPhase3(imageUrl, JSON.parse(localStorage.getItem('checkedHobbies')));
+    } else {
+      setPhase3(
+        JSON.parse(localStorage.getItem('image')),
+        JSON.parse(localStorage.getItem('checkedHobbies'))
+      );
+    }
+
     const formAction = document.querySelector('form');
     formAction.setAttribute(
       'action',
@@ -29,6 +44,7 @@ document.querySelector('button[type=submit]').addEventListener('click', e => {
 // });
 
 fileUpload.onchange = evt => {
+  didImageChange = true;
   const [file] = fileUpload.files;
   console.log(file);
   if (file) {
@@ -65,6 +81,7 @@ const setHobbies = hobbies => {
 const createCheckboxEvents = checkBoxes => {
   checkBoxes.forEach(function (checkbox) {
     checkbox.addEventListener('change', function () {
+      didCheckboxChange = true;
       checked = Array.from(checkBoxes) // Convert checkboxes to an array to use filter and map.
         .filter(i => i.checked) // Use Array.filter to remove unchecked checkboxes.
         .map(i => document.querySelector(`label[for=${i.id}]`).innerHTML); // Use Array.map to extract only the checkbox values from the array of objects.
