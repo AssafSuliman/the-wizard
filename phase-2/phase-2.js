@@ -10,7 +10,6 @@ const streetNameInput = document.querySelector("#streetName")
 const streetNumSpan = document.querySelector("#numberSpan")
 const citySpan = document.querySelector("#citySpan")
 const streetSpan = document.querySelector("#streetSpan")
-let data
 
 const localStorageData = JSON.parse(getPhase2LocalStorage())
 

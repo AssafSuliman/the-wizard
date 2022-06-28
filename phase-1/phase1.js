@@ -12,6 +12,7 @@ const birthday = document.getElementById('birth-day')
 const dateValidMessage = document.querySelector('#dateMessage')
 const today = new Date()
 const phase1Data = JSON.parse(getPhase1Data())
+
 if(phase1Data){
     firstName.value = phase1Data.firstName
     lastName.value = phase1Data.lastName

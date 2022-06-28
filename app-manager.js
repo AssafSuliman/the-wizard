@@ -2,7 +2,7 @@ function saveEntranceData () {
     localStorage.setItem('agree', 'checked')
 }
 function getEntranceData () {
-
+    return localStorage.getItem('agree')
 }
 function savePhase1Data (phase1Data) {
     localStorage.setItem('phase1Data', JSON.stringify(phase1Data))
