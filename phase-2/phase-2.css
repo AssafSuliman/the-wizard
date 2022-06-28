@@ -35,7 +35,12 @@ input[type="text"],
 .shown{
     color: red;
 }
-
+#continueBtn, #previousBtn{
+    border: none;
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 8px;
+}
 
 a {
     text-decoration: none;
