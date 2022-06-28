@@ -2,7 +2,7 @@
 const setPhase3 = (imgUrl, hobbiesArr) => {
     localStorage.setItem('image', JSON.stringify(imgUrl));
     localStorage.setItem('checkedHobbies', JSON.stringify(hobbiesArr));
-    localStorage.setItem('phase3', JSON.stringify('v'));
+    localStorage.setItem('phase', JSON.stringify('v'));
 };
 
 const getPhase3 = () => {
@@ -18,7 +18,6 @@ const getPhase3 = () => {
         }
     }
 };
-
 function saveEntranceData() {
     localStorage.setItem('agree', 'checked')
 }
