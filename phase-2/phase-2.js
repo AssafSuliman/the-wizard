@@ -35,7 +35,6 @@ async function run() {
 
 (async () => {
    await run()
-   canYouMoveToThisPage()
    createCitiesOptions()
    loadInputData()
 })();

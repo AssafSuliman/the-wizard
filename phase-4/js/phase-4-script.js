@@ -10,3 +10,17 @@ document.querySelector('button[type=submit]').addEventListener('click', e => {
     `${document.location.origin}/the-wizard/entrance-screen/entrance.html`
   );
 });
+
+const personalDetails= JSON.parse(localStorage.getItem('phase1Data'))
+const adress= JSON.parse(localStorage.getItem("phase-2"))
+const photo= JSON.parse(localStorage.getItem("img"))
+const pPersonal= document.createElement('p')
+console.log(adress)
+pPersonal.append(`name: ${personalDetails.firstName} ${personalDetails.lastName}`)
+const pEmail= document.createElement('p')
+pEmail.append(`Email: ${personalDetails.email}`)
+const pBirth= document.createElement('p')
+pBirth.append(`Birth day: ${personalDetails.birthday}`)
+const pAdress= document.createElement('p')
+pAdress.append(`adress: ${adress.city} |street: ${adress.street} ${adress.streetNum}`)
+document.querySelector('.container').append(pPersonal,pEmail,pBirth,pAdress)
