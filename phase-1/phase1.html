@@ -12,8 +12,8 @@
     <form>
           <div id="first-input" class="input-group">
             <span class="input-group-text"><img src="name.png" alt=""></span>
-            <input id="first-name" type="text" required placeholder="First Name" aria-label="First name" class="form-control">
-            <input id="last-name" type="text" required placeholder="Last Name" aria-label="Last name" class="form-control">
+            <input id="first-name" type="text" placeholder="First Name" aria-label="First name" class="form-control">
+            <input id="last-name" type="text" placeholder="Last Name" aria-label="Last name" class="form-control">
           </div>
             <span id="nameMessage" class="hidden message">First or Last name isnt valid, it should contain at leats 2 letters each, no special letters<br></span>
           <div class="input-group flex-nowrap">
@@ -23,7 +23,7 @@
           <span id="emailMessage" class="hidden message">Email not Valid!<br></span>
           <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping"><img id="date-img" src="date.png" alt=""></span>
-            <input id="birth-day" type="date" class="form-control" placeholder="Date" aria-label="Username" aria-describedby="addon-wrapping">
+            <input required id="birth-day" type="date" class="form-control" placeholder="Date" aria-label="Username" aria-describedby="addon-wrapping">
           </div>
           <span id="dateMessage" class="hidden message">Anyone with age lower than 18 can't sign up</span>
           <div id="buttons">
