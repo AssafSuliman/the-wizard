@@ -14,6 +14,7 @@ document.querySelector('button[type=submit]').addEventListener('click', e => {
 const personalDetails= JSON.parse(localStorage.getItem('phase1Data'))
 const adress= JSON.parse(localStorage.getItem("phase-2"))
 const photo= JSON.parse(localStorage.getItem("img"))
+const hobbies= JSON.parse(localStorage.getItem("checkedHobbies"))
 const pPersonal= document.createElement('p')
 console.log(adress)
 pPersonal.append(`name: ${personalDetails.firstName} ${personalDetails.lastName}`)
@@ -23,4 +24,9 @@ const pBirth= document.createElement('p')
 pBirth.append(`Birth day: ${personalDetails.birthday}`)
 const pAdress= document.createElement('p')
 pAdress.append(`adress: ${adress.city} |street: ${adress.street} ${adress.streetNum}`)
-document.querySelector('.container').append(pPersonal,pEmail,pBirth,pAdress)
+const imgPhoto= document.createElement('img')
+imgPhoto.src= photo
+imgPhoto.alt= 'userphoto'
+const pHobbies= document.createElement('p')
+pHobbies.append(`hobbies: ${hobbies}`)
+document.querySelector('.container').append(imgPhoto,pPersonal,pEmail,pBirth,pAdress,pHobbies)
