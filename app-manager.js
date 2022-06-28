@@ -1,11 +1,10 @@
 const setPhase3 = (imgUrl, hobbiesArr) => {
-    localStorage.setItem('image', JSON.stringify(imgUrl));
-    localStorage.setItem('checkedHobbies', JSON.stringify(hobbiesArr));
-    localStorage.setItem('phase', JSON.stringify('v'));
+  localStorage.setItem('image', JSON.stringify(imgUrl));
+  localStorage.setItem('checkedHobbies', JSON.stringify(hobbiesArr));
+  localStorage.setItem('phase', JSON.stringify('v'));
 };
 
 const getPhase3 = () => {
-
     if (localStorage.getItem('phase3')) {
         const hobbies = localStorage.getItem('checkedHobbies');
         const fileUpload = document.querySelector('#fileUpload').nextElementSibling;
@@ -46,56 +45,67 @@ function getPhase2LocalStorage() {
 }
 
 function userPlace() {
-    const mainDiv = document.createElement('div')
-    mainDiv.classList = 'progress'
-    const entrance = createProgressCircle('1', 'agreement')
-    const span1 = createBarSpan()
-    const firstPhase = createProgressCircle('2', 'phase 1')
-    const span2 = createBarSpan()
-    const adress = createProgressCircle('3', 'phase 2')
-    const span3 = createBarSpan()
-    const photo = createProgressCircle('4', 'phase 3')
-    const span4 = createBarSpan()
-    const final = createProgressCircle('5', 'summery')
-    if (localStorage.getItem('agree')) {
-        entrance.querySelector('.label').textContent = '✓'
-        entrance.classList = 'circle done'
-    }
-    if (localStorage.getItem('phase1Data')) {
-        firstPhase.querySelector('.label').textContent = '✓'
-        firstPhase.classList = 'circle done'
-    }
-    if (localStorage.getItem("phase-2")) {
-        adress.querySelector('.label').textContent = '✓'
-        adress.classList = 'circle done'
-    }
-    if (localStorage.getItem("img")) {
-        photo.querySelector('.label').textContent = '✓'
-        photo.classList = 'circle done'
-    }
-    mainDiv.append(entrance, span1, firstPhase, span2, adress, span3, photo, span4, final)
-    document.querySelector('header').append(mainDiv)
+  const mainDiv = document.createElement('div');
+  mainDiv.classList = 'progress';
+  const entrance = createProgressCircle('1', 'agreement');
+  const span1 = createBarSpan();
+  const firstPhase = createProgressCircle('2', 'phase 1');
+  const span2 = createBarSpan();
+  const adress = createProgressCircle('3', 'phase 2');
+  const span3 = createBarSpan();
+  const photo = createProgressCircle('4', 'phase 3');
+  const span4 = createBarSpan();
+  const final = createProgressCircle('5', 'summery');
+  if (localStorage.getItem('agree')) {
+    entrance.querySelector('.label').textContent = '✓';
+    entrance.classList = 'circle done';
+  }
+  if (localStorage.getItem('phase1Data')) {
+    firstPhase.querySelector('.label').textContent = '✓';
+    firstPhase.classList = 'circle done';
+  }
+  if (localStorage.getItem('phase-2')) {
+    adress.querySelector('.label').textContent = '✓';
+    adress.classList = 'circle done';
+  }
+  if (localStorage.getItem('img')) {
+    photo.querySelector('.label').textContent = '✓';
+    photo.classList = 'circle done';
+  }
+  mainDiv.append(
+    entrance,
+    span1,
+    firstPhase,
+    span2,
+    adress,
+    span3,
+    photo,
+    span4,
+    final
+  );
+  document.querySelector('header').append(mainDiv);
 }
-userPlace()
+userPlace();
 function createProgressCircle(number, name) {
-    const circleDiv = document.createElement('div')
-    circleDiv.classList = 'circle active'
-    const label = document.createElement('span')
-    label.classList = 'label'
-    label.textContent = number
-    const title = document.createElement('span')
-    title.classList = 'title'
-    title.textContent = name
-    circleDiv.append(label, title)
-    return circleDiv
+  const circleDiv = document.createElement('div');
+  circleDiv.classList = 'circle active';
+  const label = document.createElement('span');
+  label.classList = 'label';
+  label.textContent = number;
+  const title = document.createElement('span');
+  title.classList = 'title';
+  title.textContent = name;
+  circleDiv.append(label, title);
+  return circleDiv;
 }
 function createBarSpan() {
-    const span = document.createElement('span')
-    span.classList = 'bar'
-    return span
+  const span = document.createElement('span');
+  span.classList = 'bar';
+  return span;
 }
 
 function canYouMoveToThisPage() {
+<<<<<<< HEAD
 
     if (!localStorage.getItem('agree')) {
         window.location.replace(
@@ -114,6 +124,25 @@ function canYouMoveToThisPage() {
             `${document.location.origin}/the-wizard/phase-3/phase-3.html`
         );
     }
+=======
+  if (!localStorage.getItem('agree')) {
+    window.location.replace(
+      `${document.location.origin}/the-wizard/entrance-screen/entrance.html`
+    );
+  } else if (!localStorage.getItem('phase1Data')) {
+    window.location.replace(
+      `${document.location.origin}/the-wizard/phase-1/phase1.html`
+    );
+  } else if (!localStorage.getItem('phase-2')) {
+    window.location.replace(
+      `${document.location.origin}/the-wizard/phase-2/phase-2.html`
+    );
+  } else if (!localStorage.getItem('img')) {
+    window.location.replace(
+      `${document.location.origin}/the-wizard/phase-3/phase-3.html`
+    );
+  }
+>>>>>>> main
 }
 
 function startNewWizard() {
