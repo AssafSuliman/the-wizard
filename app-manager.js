@@ -31,3 +31,6 @@ function canYouMoveToThisPage() {
     }
 }
 
+function startNewWizard(){
+    localStorage.clear()
+}
