@@ -1,18 +1,9 @@
 const body = document.querySelector("body")
-
 const previousBtn = document.querySelector("#previousBtn")
 previousBtn.setAttribute("href", `${document.location.origin}/the-wizard/phase-1/phase1.html`)
-
-//const continueBtn = document.querySelector("#continueBtn").addEventListener("click", nextPageValidation)
-
 const form = document.querySelector('form')
 form.setAttribute('action', `${document.location.origin}/the-wizard/phase-3/phase-3.html`)
 form.addEventListener('submit', nextPageValidation)
-
-
-//const regexStreet = /[a-zA-Z .-]/
-
-
 const streetNumInput = document.querySelector("#streetNum")
 const selectCity = document.querySelector("#selectCity")
 const streetNameInput = document.querySelector("#streetName")
@@ -22,6 +13,7 @@ const streetSpan = document.querySelector("#streetSpan")
 
 let data
 
+//const regexStreet = /[a-zA-Z .-]/
 
 const getData = async data => {
     const response = await fetch("json/cities.json")
@@ -86,7 +78,6 @@ function streetValidation(){
         return true
     }
 }
-
 
 
 function nextPageValidation(e){
