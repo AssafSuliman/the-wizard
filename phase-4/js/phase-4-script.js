@@ -3,6 +3,7 @@ document.querySelector(
 ).href = `${document.location.origin}/the-wizard/phase-3/phase-3.html`;
 
 document.querySelector('button[type=submit]').addEventListener('click', e => {
+  startNewWizard()
   const formAction = document.querySelector('form');
   formAction.setAttribute(
     'action',
