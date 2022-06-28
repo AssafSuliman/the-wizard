@@ -91,7 +91,7 @@ function createBarSpan(){
 }
 
 function canYouMoveToThisPage() {
-    if (!localStorage.getItem("agree")) {
+     if (!localStorage.getItem("agree")) {
         window.location.replace(`${document.location.origin}/the-wizard/entrance-screen/entrance.html`)
     } else if (!localStorage.getItem("phase1Data")) {
         window.location.replace(`${document.location.origin}/the-wizard/entrance-screen/entrance.html`)
@@ -107,4 +107,3 @@ function canYouMoveToThisPage() {
 function startNewWizard(){
     localStorage.clear()
 }
-
