@@ -1,4 +1,10 @@
 let checked = [];
+let imageUrl;
+
+window.addEventListener('load', e => {
+  getPhase3();
+});
+
 document.querySelector(
   '.prev-page'
 ).href = `${document.location.origin}/the-wizard/phase-2/phase-2.html`;
@@ -7,7 +13,8 @@ document.querySelector('button[type=submit]').addEventListener('click', e => {
   if (!checked.length) {
     e.preventDefault();
   } else {
-    console.log(checked);
+    console.log(document.querySelector('#preview').src);
+    setPhase3(imageUrl, checked);
     const formAction = document.querySelector('form');
     formAction.setAttribute(
       'action',
@@ -16,15 +23,17 @@ document.querySelector('button[type=submit]').addEventListener('click', e => {
   }
 });
 
-document.querySelector('#fileUpload').addEventListener('change', e => {
-  const imageUrl = document.querySelector('#preview').src;
-  localStorage.setItem('image', JSON.stringify(imageUrl));
-});
+// document.querySelector('#fileUpload').addEventListener('change', e => {
+
+//   // localStorage.setItem('image', JSON.stringify(imageUrl));
+// });
 
 fileUpload.onchange = evt => {
   const [file] = fileUpload.files;
+  console.log(file);
   if (file) {
     preview.src = URL.createObjectURL(file);
+    imageUrl = '1-1024x698.png';
   }
 };
 
@@ -60,7 +69,7 @@ const createCheckboxEvents = checkBoxes => {
         .filter(i => i.checked) // Use Array.filter to remove unchecked checkboxes.
         .map(i => document.querySelector(`label[for=${i.id}]`).innerHTML); // Use Array.map to extract only the checkbox values from the array of objects.
 
-      localStorage.setItem('checkedHobbies', JSON.stringify(checked));
+      // localStorage.setItem('checkedHobbies', JSON.stringify(checked));
     });
   });
 };
