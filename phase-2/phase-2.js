@@ -11,9 +11,18 @@ const streetNumSpan = document.querySelector("#numberSpan")
 const citySpan = document.querySelector("#citySpan")
 const streetSpan = document.querySelector("#streetSpan")
 
-let data
+const localStorageData = JSON.parse(getPhase2LocalStorage())
 
-//const regexStreet = /[a-zA-Z .-]/
+//const regexStreet = /([A-Z]+)([-.]*)/
+
+
+function loadInputData(){
+    if(localStorageData){
+        selectCity.value = localStorageData.city
+        streetNameInput.value = localStorageData.street
+        streetNumInput.value = localStorageData.streetNum
+    }
+}
 
 const getData = async data => {
     const response = await fetch("json/cities.json")
@@ -26,7 +35,9 @@ async function run() {
 
 (async () => {
    await run()
+   canYouMoveToThisPage()
    createCitiesOptions()
+   loadInputData()
 })();
 
 
@@ -69,8 +80,18 @@ function cityValidation(){
     }
 }
 
+// function streetValidation(){
+//     if(streetNameInput.value ==""){
+//         showError(streetSpan)
+//         return false
+//     } else {
+//         removeError(streetSpan)
+//         return true
+//     }
+// }
+
 function streetValidation(){
-    if(streetNameInput.value ==""){
+    if(!regexStreet.test(streetNameInput.value)){
         showError(streetSpan)
         return false
     } else {
@@ -85,6 +106,7 @@ function nextPageValidation(e){
     const numberValid = streetNumberValidation()
     const cityValid = cityValidation()
     if(streetValid && numberValid && cityValid){
+        savePhase2LocalStorage(selectCity, streetNameInput, streetNumInput)
         return
     } else {
         e.preventDefault()
