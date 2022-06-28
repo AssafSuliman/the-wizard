@@ -10,10 +10,17 @@ const streetNameInput = document.querySelector("#streetName")
 const streetNumSpan = document.querySelector("#numberSpan")
 const citySpan = document.querySelector("#citySpan")
 const streetSpan = document.querySelector("#streetSpan")
-
 let data
 
-//const regexStreet = /[a-zA-Z .-]/
+const localStorageData = JSON.parse(getPhase2LocalStorage())
+
+function loadInputData(){
+    if(localStorageData){
+        selectCity.value = localStorageData.city
+        streetNameInput.value = localStorageData.street
+        streetNumInput.value = localStorageData.streetNum
+    }
+}
 
 const getData = async data => {
     const response = await fetch("json/cities.json")
@@ -27,6 +34,7 @@ async function run() {
 (async () => {
    await run()
    createCitiesOptions()
+   loadInputData()
 })();
 
 
@@ -85,6 +93,7 @@ function nextPageValidation(e){
     const numberValid = streetNumberValidation()
     const cityValid = cityValidation()
     if(streetValid && numberValid && cityValid){
+        savePhase2LocalStorage(selectCity, streetNameInput, streetNumInput)
         return
     } else {
         e.preventDefault()
