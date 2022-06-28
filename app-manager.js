@@ -17,16 +17,3 @@ const getPhase3 = () => {
     }
   }
 };
-
-// const getBase64Image = bannerImage => {
-//   let canvas = document.createElement('canvas');
-//   canvas.width = img.width;
-//   canvas.height = img.height;
-
-//   let ctx = canvas.getContext('2d');
-//   ctx.drawImage(img, 0, 0);
-
-//   let dataURL = canvas.toDataURL('image/png');
-
-//   return dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
-// };
