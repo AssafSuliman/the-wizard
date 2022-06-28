@@ -17,8 +17,16 @@ form{
     margin-top:30px;
     display: flex;
     justify-content: space-between;
-
 }
+#previousButton{
+    border: none;
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
 #first-input{
     margin:0
 }
