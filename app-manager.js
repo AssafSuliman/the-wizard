@@ -44,10 +44,12 @@ function canYouMoveToThisPage() {
     if (!localStorage.getItem("agree")) {
         window.location.replace(`${document.location.origin}/the-wizard/entrance-screen/entrance.html`)
     } else if (!localStorage.getItem("phase1Data")) {
-        window.location.replace(`${document.location.origin}/the-wizard/phase-1/phase1.html`)
+        window.location.replace(`${document.location.origin}/the-wizard/entrance-screen/entrance.html`)
     } else if (!localStorage.getItem("phase-2")) {
-        window.location.replace(`${document.location.origin}/the-wizard/phase-2/phase-2.html`)
+        window.location.replace(`${document.location.origin}/the-wizard/phase-1/phase1.html`)
     } else if (!localStorage.getItem("img")) {
+        window.location.replace(`${document.location.origin}/the-wizard/phase-2/phase-2.html`)
+    } else if (!localStorage.getItem("summary")) {
         window.location.replace(`${document.location.origin}/the-wizard/phase-3/phase-3.html`)
     }
 }
