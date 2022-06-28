@@ -11,7 +11,7 @@ document.querySelector('button[type=submit]').addEventListener('click', e => {
     const formAction = document.querySelector('form');
     formAction.setAttribute(
       'action',
-      `${document.location.origin}/Wizard/the-wizard/phase-4/phase-4.html`
+      `${document.location.origin}/the-wizard/phase-4/phase-4.html`
     );
   }
 });
