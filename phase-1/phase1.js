@@ -1,4 +1,3 @@
-canYouMoveToThisPage()
 const continueBtn = document.querySelector('form')
 continueBtn.setAttribute('action', `${document.location.origin}/the-wizard/phase-2/phase-2.html`)
 continueBtn.addEventListener('submit', nextPage)
