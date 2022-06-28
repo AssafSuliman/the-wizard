@@ -68,7 +68,7 @@ function userPlace() {
     adress.querySelector('.label').textContent = '✓';
     adress.classList = 'circle done';
   }
-  if (localStorage.getItem('img')) {
+  if (localStorage.getItem('image')) {
     photo.querySelector('.label').textContent = '✓';
     photo.classList = 'circle done';
   }
@@ -104,46 +104,25 @@ function createBarSpan() {
   return span;
 }
 
-function canYouMoveToThisPage() {
-<<<<<<< HEAD
-
-    if (!localStorage.getItem('agree')) {
-        window.location.replace(
-            `${document.location.origin}/the-wizard/entrance-screen/entrance.html`
-        );
-    } else if (!localStorage.getItem('phase1Data')) {
-        window.location.replace(
-            `${document.location.origin}/the-wizard/phase-1/phase1.html`
-        );
-    } else if (!localStorage.getItem('phase-2')) {
-        window.location.replace(
-            `${document.location.origin}/the-wizard/phase-2/phase-2.html`
-        );
-    } else if (!localStorage.getItem('img')) {
-        window.location.replace(
-            `${document.location.origin}/the-wizard/phase-3/phase-3.html`
-        );
-    }
-=======
-  if (!localStorage.getItem('agree')) {
-    window.location.replace(
-      `${document.location.origin}/the-wizard/entrance-screen/entrance.html`
-    );
-  } else if (!localStorage.getItem('phase1Data')) {
-    window.location.replace(
-      `${document.location.origin}/the-wizard/phase-1/phase1.html`
-    );
-  } else if (!localStorage.getItem('phase-2')) {
-    window.location.replace(
-      `${document.location.origin}/the-wizard/phase-2/phase-2.html`
-    );
-  } else if (!localStorage.getItem('img')) {
-    window.location.replace(
-      `${document.location.origin}/the-wizard/phase-3/phase-3.html`
-    );
-  }
->>>>>>> main
-}
+// function canYouMoveToThisPage() {
+//     if (!localStorage.getItem('agree')) {
+//         window.location.replace(
+//             `${document.location.origin}/the-wizard/entrance-screen/entrance.html`
+//         );
+//     } else if (!localStorage.getItem('phase1Data')) {
+//         window.location.replace(
+//             `${document.location.origin}/the-wizard/phase-1/phase1.html`
+//         );
+//     } else if (!localStorage.getItem('phase-2')) {
+//         window.location.replace(
+//             `${document.location.origin}/the-wizard/phase-2/phase-2.html`
+//         );
+//     } else if (!localStorage.getItem('img')) {
+//         window.location.replace(
+//             `${document.location.origin}/the-wizard/phase-3/phase-3.html`
+//         );
+//     }
+// }
 
 function startNewWizard() {
     localStorage.clear();
