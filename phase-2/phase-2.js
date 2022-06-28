@@ -13,6 +13,9 @@ const streetSpan = document.querySelector("#streetSpan")
 
 const localStorageData = JSON.parse(getPhase2LocalStorage())
 
+//const regexStreet = /([A-Z]+)([-.]*)/
+
+
 function loadInputData(){
     if(localStorageData){
         selectCity.value = localStorageData.city
@@ -32,6 +35,7 @@ async function run() {
 
 (async () => {
    await run()
+   canYouMoveToThisPage()
    createCitiesOptions()
    loadInputData()
 })();
@@ -76,8 +80,18 @@ function cityValidation(){
     }
 }
 
+// function streetValidation(){
+//     if(streetNameInput.value ==""){
+//         showError(streetSpan)
+//         return false
+//     } else {
+//         removeError(streetSpan)
+//         return true
+//     }
+// }
+
 function streetValidation(){
-    if(streetNameInput.value ==""){
+    if(!regexStreet.test(streetNameInput.value)){
         showError(streetSpan)
         return false
     } else {
