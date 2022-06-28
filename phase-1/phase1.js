@@ -11,6 +11,13 @@ const emailValidMessage = document.querySelector('#emailMessage')
 const birthday = document.getElementById('birth-day')
 const dateValidMessage = document.querySelector('#dateMessage')
 const today = new Date()
+const phase1Data = JSON.parse(getPhase1Data())
+if(phase1Data){
+    firstName.value = phase1Data.firstName
+    lastName.value = phase1Data.lastName
+    email.value = phase1Data.email
+    birthday.value = phase1Data.birthday
+}
 
 function fullNameValidation(){
     const specialLetters = /[!@#$%^ &*.]/g
@@ -57,5 +64,9 @@ function nextPage (e) {
     const birthdayValid = birthdayValidation()
     if(nameValid || emailValid || birthdayValid){
         e.preventDefault()
+    }
+    else{
+        savePhase1Data({'firstName':firstName.value, 'lastName':lastName.value,
+         'email':email.value, 'birthday':birthday.value})
     }
 }
