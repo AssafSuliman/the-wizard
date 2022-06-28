@@ -18,3 +18,6 @@ function savePhase2LocalStorage(selectCity, streetNameInput, streetNumInput){
 function getPhase2LocalStorage(){
     return localStorage.getItem("phase-2")
 }
+function startNewWizard(){
+    localStorage.clear()
+}
