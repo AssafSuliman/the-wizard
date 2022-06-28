@@ -10,6 +10,9 @@ form.setAttribute('action', `${document.location.origin}/the-wizard/phase-3/phas
 form.addEventListener('submit', nextPageValidation)
 
 
+//const regexStreet = /[a-zA-Z .-]/
+
+
 const streetNumInput = document.querySelector("#streetNum")
 const selectCity = document.querySelector("#selectCity")
 const streetNameInput = document.querySelector("#streetName")
@@ -75,7 +78,7 @@ function cityValidation(){
 }
 
 function streetValidation(){
-    if(streetNameInput.value == ""){
+    if(streetNameInput.value ==""){
         showError(streetSpan)
         return false
     } else {
@@ -84,24 +87,15 @@ function streetValidation(){
     }
 }
 
-// function nextPageValidation(){
-//     streetNumberValidation()
-//     cityValidation()
-//     streetValidation()
-// }
-
 
 
 function nextPageValidation(e){
-    const streetValid = streetNameInput()
+    const streetValid = streetValidation()
     const numberValid = streetNumberValidation()
     const cityValid = cityValidation()
     if(streetValid && numberValid && cityValid){
-        console.log("hello")
-    }
-    else{
+        return
+    } else {
         e.preventDefault()
     }
 }
-
-
