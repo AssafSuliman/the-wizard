@@ -36,7 +36,6 @@ async function run() {
    await run()
    createCitiesOptions()
    loadInputData()
-//    canYouMoveToThisPage()
 })();
 
 
@@ -60,7 +59,7 @@ function removeError(span){
 }
 
 function streetNumberValidation(){
-    if(streetNumInput.value < 0 || streetNumInput.value == ""){
+    if(streetNumInput.value < 1 || streetNumInput.value == ""){
         showError(streetNumSpan)
         return false
     } else {
