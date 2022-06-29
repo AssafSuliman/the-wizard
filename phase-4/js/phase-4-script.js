@@ -1,3 +1,5 @@
+canYouMoveToThisPage('phase', 'phase-3/phase-3.html')
+
 document.querySelector(
   '.prev-page'
 ).href = `${document.location.origin}/the-wizard/phase-3/phase-3.html`;
