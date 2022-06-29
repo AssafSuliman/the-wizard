@@ -28,12 +28,9 @@ const getData = async data => {
     return response.json()
 }
 
-async function run() {
-    data = await getData()
-}
 
 (async () => {
-   await run()
+    data = await getData()
    createCitiesOptions()
    loadInputData()
 })();
