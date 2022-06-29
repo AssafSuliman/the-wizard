@@ -19,28 +19,24 @@ const photo = JSON.parse(localStorage.getItem('image'));
 const hobbies = JSON.parse(localStorage.getItem('checkedHobbies'));
 const pPersonal = document.createElement('p');
 console.log(adress);
-pPersonal.append(
-  `${personalDetails.firstName} ${personalDetails.lastName}`
-);
-pPersonal.style.fontSize= '3vw'
+pPersonal.append(`${personalDetails.firstName} ${personalDetails.lastName}`);
+pPersonal.style.fontSize = '3vw';
 const pEmail = document.createElement('p');
 pEmail.append(`Email: ${personalDetails.email}`);
 const pBirth = document.createElement('p');
 pBirth.append(`Birth day: ${personalDetails.birthday}`);
 const pAdress = document.createElement('p');
 pAdress.append(
-  `adress: ${adress.city} |street: ${adress.street} ${adress.streetNum}`
+  `address: ${adress.city} |street: ${adress.street} ${adress.streetNum}`
 );
 const imgPhoto = document.createElement('img');
 imgPhoto.src = photo;
 imgPhoto.alt = 'userphoto';
-imgPhoto.style.height='5.5vw'
-imgPhoto.style.width='5.5vw'
+imgPhoto.style.height = '5.5vw';
+imgPhoto.style.width = '5.5vw';
 const pHobbies = document.createElement('p');
 pHobbies.append(`hobbies: ${hobbies}`);
-const detailsDiv= document.createElement('div')
-detailsDiv.append(pPersonal, pEmail, pBirth, pAdress, pHobbies)
-document
-  .querySelector('.container')
-  .append(imgPhoto, detailsDiv);
-document.querySelector('.container').style.display='flex'
+const detailsDiv = document.createElement('div');
+detailsDiv.append(pPersonal, pEmail, pBirth, pAdress, pHobbies);
+document.querySelector('.container').append(imgPhoto, detailsDiv);
+document.querySelector('.container').style.display = 'flex';
