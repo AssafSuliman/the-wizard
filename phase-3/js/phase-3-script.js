@@ -1,3 +1,5 @@
+canYouMoveToThisPage('phase-2', 'phase-2/phase-2.html')
+
 let didImageChange = false;
 let didCheckboxChange = false;
 

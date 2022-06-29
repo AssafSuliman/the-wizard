@@ -1,3 +1,5 @@
+canYouMoveToThisPage('phase1Data', 'phase-1/phase1.html')
+
 const body = document.querySelector("body")
 const previousBtn = document.querySelector("#previousBtn")
 previousBtn.setAttribute("href", `${document.location.origin}/the-wizard/phase-1/phase1.html`)

@@ -1,3 +1,5 @@
+canYouMoveToThisPage('agree', 'entrance-screen/entrance.html')
+
 const continueBtn = document.querySelector('form')
 continueBtn.setAttribute('action', `${document.location.origin}/the-wizard/phase-2/phase-2.html`)
 continueBtn.addEventListener('submit', nextPage)
@@ -53,17 +55,17 @@ function birthdayValidation(){
         dateValidMessage.classList.add('hidden')
         return false
     }
-    else{
+    else {
         dateValidMessage.classList.remove('hidden')
         return true
     }
 }
 
 function nextPage (e) {
-    const nameValid = fullNameValidation()
-    const emailValid = emailValidation()
-    const birthdayValid = birthdayValidation()
-    if(nameValid || emailValid || birthdayValid){
+    const nameNotValid = fullNameValidation()
+    const emailNotValid = emailValidation()
+    const birthdayNotValid = birthdayValidation()
+    if(nameNotValid || emailNotValid || birthdayNotValid){
         e.preventDefault()
     }
     else{
