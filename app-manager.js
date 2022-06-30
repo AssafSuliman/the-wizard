@@ -19,6 +19,15 @@ const getPhase3 = () => {
     }
   }
 };
+function savePremium(){
+  localStorage.setItem('premium', 'checked')
+}
+function getPremium(){
+  return localStorage.getItem('premium')
+}
+function removePremium(){
+  localStorage.removeItem('premium')
+}
 function saveEntranceData() {
   localStorage.setItem('agree', 'checked');
 }
