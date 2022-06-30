@@ -1,16 +1,17 @@
 const continueBtn = document.querySelector('form')
-continueBtn.setAttribute('action', `${document.location.origin}/the-wizard/phase-1/phase1.html`) 
-continueBtn.addEventListener('submit', nextPage)
-const agree = document.querySelector('#agree')
 const premiumWiz = document.querySelector('#premium')
-premiumWiz.addEventListener('click', newPage)
-const savedAgree = getEntranceData()
 const savedPremium = getPremium()
-if(savedAgree){
-    agree.checked = true
-}
 if(savedPremium){
     premiumWiz.checked = true
+}
+newPage()
+continueBtn.addEventListener('submit', nextPage)
+const agree = document.querySelector('#agree')
+premiumWiz.addEventListener('click', newPage)
+
+const savedAgree = getEntranceData()
+if(savedAgree){
+    agree.checked = true
 }
 function newPage(){
     if(premiumWiz.checked){
