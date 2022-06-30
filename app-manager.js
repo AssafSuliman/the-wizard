@@ -68,13 +68,14 @@ function userPlace() {
   mainDiv.classList = 'progress';
   const entrance = createProgressCircle('1', 'agreement');
   const span1 = createBarSpan();
-  const firstPhase = createProgressCircle('2', 'phase 1');
+  const firstPhase = createProgressCircle('2', 'personal information');
   const span2 = createBarSpan();
-  const adress = createProgressCircle('3', 'phase 2');
+  const adress = createProgressCircle('3', 'adress');
   const span3 = createBarSpan();
-  const photo = createProgressCircle('4', 'phase 3');
+  const photo = createProgressCircle('4', 'photo&hobbies');
   const span4 = createBarSpan();
   const final = createProgressCircle('5', 'summery');
+  let premium;
   if (localStorage.getItem('agree')) {
     entrance.querySelector('.label').textContent = '✓';
     entrance.classList = 'circle done';
@@ -92,18 +93,15 @@ function userPlace() {
     photo.classList = 'circle done';
   }
 
-  colorPlace(entrance, firstPhase, adress, photo, final);
   if (localStorage.getItem('premium')) {
-    firstPhase.querySelector('.label').textContent = '3';
-    adress.querySelector('.label').textContent = '4';
     photo.querySelector('.label').textContent = '5';
     final.querySelector('.label').textContent = '6';
-    const primium = createProgressCircle('2', 'primium');
+    premium = createProgressCircle('2', 'premium');
     const span5 = createBarSpan();
     mainDiv.append(
       entrance,
       span1,
-      primium,
+      premium,
       span5,
       firstPhase,
       span2,
@@ -112,20 +110,21 @@ function userPlace() {
       photo,
       span4,
       final
-    );
-  } else {
-    mainDiv.append(
-      entrance,
-      span1,
-      firstPhase,
-      span2,
-      adress,
-      span3,
-      photo,
-      span4,
-      final
-    );
-  }
+      );
+    } else {
+      mainDiv.append(
+        entrance,
+        span1,
+        firstPhase,
+        span2,
+        adress,
+        span3,
+        photo,
+        span4,
+        final
+        );
+      }
+      colorPlace(entrance, firstPhase, adress, photo, final,premium);
   document.querySelector('header').append(mainDiv);
 }
 userPlace();
@@ -141,7 +140,11 @@ function createProgressCircle(number, name) {
   circleDiv.append(label, title);
   return circleDiv;
 }
-function colorPlace(entrance, firstPhase, adress, photo, final) {
+function colorPlace(entrance, firstPhase, adress, photo, final,premium) {
+  if (localStorage.getItem('premium')){
+    premium.querySelector('.title').style.color = '';
+    premium.querySelector('.title').style.backgroundColor = '';
+  }
   entrance.querySelector('.title').style.color = '';
   entrance.querySelector('.title').style.backgroundColor = '';
   firstPhase.querySelector('.title').style.color = '';
