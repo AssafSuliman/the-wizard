@@ -12,6 +12,12 @@
   text-align: center;
   height: 4.5vw;
   justify-content: center;
+  background-color: white;
+  display: inline;
+}
+header{
+  display: flex;
+  align-items: center;
 }
 
 .progress .circle,

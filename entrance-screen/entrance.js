@@ -19,6 +19,7 @@ function newPage(){
     }
     else {
         continueBtn.setAttribute('action', `${document.location.origin}/the-wizard/phase-1/phase1.html`)
+        startNewWizard()
         removePremium()
     }
 }
