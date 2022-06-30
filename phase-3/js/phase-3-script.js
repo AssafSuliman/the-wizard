@@ -1,14 +1,60 @@
-canYouMoveToThisPage('phase-2', 'phase-2/phase-2.html')
+canYouMoveToThisPage('phase-2', 'phase-2/phase-2.html');
 
 let didImageChange = false;
 let didCheckboxChange = false;
+let onlyOneImage = false;
 
 let checked = localStorage.getItem('checkedHobbies') || [];
-let imageUrl;
+let imageUrl = [];
 
 window.addEventListener('load', e => {
+  if (localStorage.getItem('imageArray') && !localStorage.getItem('premium')) {
+    onlyOneImage = true;
+  }
   getPhase3();
 });
+
+window.onload = function () {
+  //Check File API support
+  setLabel();
+  if (window.File && window.FileList && window.FileReader) {
+    let filesInput = document.getElementById('files');
+    filesInput.addEventListener('change', function (event) {
+      if (onlyOneImage) {
+        return;
+      }
+      let files = event.target.files; //FileList object
+      let output = document.getElementById('result');
+      for (let i = 0; i < files.length; i++) {
+        let file = files[i];
+        //Only pics
+        if (!file.type.match('image')) continue;
+        didImageChange = true;
+        let picReader = new FileReader();
+        picReader.addEventListener('load', function (event) {
+          let picFile = event.target;
+          let div = document.createElement('div');
+          div.innerHTML =
+            "<img class='thumbnail' src='" +
+            picFile.result +
+            "'" +
+            "title='" +
+            picFile.name +
+            "'/>";
+          output.insertBefore(div, null);
+          imageUrl.push(picFile.result);
+        });
+        //Read the image
+        picReader.readAsDataURL(file);
+      }
+      if (!localStorage.getItem('premium')) {
+        onlyOneImage = true;
+      }
+    });
+  } else {
+    console.log('Your browser does not support File API');
+  }
+};
 
 document.querySelector(
   '.prev-page'
@@ -18,16 +64,15 @@ document.querySelector('button[type=submit]').addEventListener('click', e => {
   if (!checked.length) {
     e.preventDefault();
   } else {
-    console.log(document.querySelector('#preview').src);
     if (didCheckboxChange && didImageChange) {
       setPhase3(imageUrl, checked);
     } else if (didCheckboxChange && !didImageChange) {
-      setPhase3(JSON.parse(localStorage.getItem('image')), checked);
+      setPhase3(JSON.parse(localStorage.getItem('imageArray')), checked);
     } else if (!didCheckboxChange && didImageChange) {
       setPhase3(imageUrl, JSON.parse(localStorage.getItem('checkedHobbies')));
     } else {
       setPhase3(
-        JSON.parse(localStorage.getItem('image')),
+        JSON.parse(localStorage.getItem('imageArray')),
         JSON.parse(localStorage.getItem('checkedHobbies'))
       );
     }
@@ -45,20 +90,28 @@ document.querySelector('button[type=submit]').addEventListener('click', e => {
 //   // localStorage.setItem('image', JSON.stringify(imageUrl));
 // });
 
-fileUpload.onchange = evt => {
-  didImageChange = true;
-  const [file] = fileUpload.files;
-  console.log(file);
-  if (file) {
-    preview.src = URL.createObjectURL(file);
-    imageUrl = '1-1024x698.png';
-  }
-};
+// fileUpload.onchange = evt => {
+//   didImageChange = true;
+//   const [file] = fileUpload.files;
+//   console.log(file);
+//   if (file) {
+//     preview.src = URL.createObjectURL(file);
+//     imageUrl = '1-1024x698.png';
+//   }
+// };
 
 const fetchData = async () => {
   const response = await fetch('json/hobbies.json');
   const jsonData = await response.json();
   return jsonData;
+};
+const setLabel = () => {
+  const imgUploadLabel = document.querySelector('.custom-file-upload');
+  if (localStorage.getItem('premium')) {
+    imgUploadLabel.appendChild(document.createTextNode('Upload Images'));
+  } else {
+    imgUploadLabel.appendChild(document.createTextNode('Upload Image'));
+  }
 };
 
 const setHobbies = hobbies => {
