@@ -40,7 +40,7 @@ window.onload = function () {
         //Only pics
         if (!file.type.match('image')) continue;
         else {
-          showThatChecked();
+          if (imageUrl.length === 0) showThatChecked();
         }
         didImageChange = true;
         let picReader = new FileReader();
