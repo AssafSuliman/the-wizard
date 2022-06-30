@@ -4,7 +4,8 @@ const continueBtn = document.querySelector('form')
 continueBtn.setAttribute('action', `${document.location.origin}/the-wizard/phase-2/phase-2.html`)
 continueBtn.addEventListener('submit', nextPage)
 const previousButton = document.querySelector('#previousButton')
-previousButton.setAttribute('href', `${document.location.origin}/the-wizard/entrance-screen/entrance.html`)
+if(localStorage.getItem('premium')){previousButton.setAttribute('href', `${document.location.origin}/the-wizard/premium/premium.html`)}
+else{previousButton.setAttribute('href', `${document.location.origin}/the-wizard/entrance-screen/entrance.html`)}
 const firstName = document.querySelector('#first-name')
 const lastName = document.querySelector('#last-name')
 const nameValidMessage = document.querySelector('#nameMessage')
