@@ -13,6 +13,8 @@ body {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   width: 50%;
   height: 50%;
 }
@@ -35,4 +37,20 @@ section {
   display: flex;
   justify-content: space-around;
   width: 100%;
+}
+.carousel-control-prev-icon{
+  background-color: black;
+  opacity:0.5
+}
+.carousel-control-next-icon{
+  background-color: black;
+  opacity: 0.5;
+}
+.carousel{
+  width:400px;
+  height:400px;
+  align-self: center;
+}
+img{
+  height:400px
 }
