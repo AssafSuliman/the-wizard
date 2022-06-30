@@ -63,7 +63,5 @@ continueBtn.setAttribute('action', `${document.location.origin}/the-wizard/phase
 document.querySelector('#previousButton').setAttribute('href', `${document.location.origin}/the-wizard/entrance-screen/entrance.html`)
 continueBtn.addEventListener('submit',function(e){
     e.preventDefault
-    if (document.querySelector('.currentSelction')){
-        localStorage.setItem('DecidedPrimium','checked')
-    }
+    localStorage.setItem('DecidedPrimium','checked')
 })

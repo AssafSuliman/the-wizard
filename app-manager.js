@@ -68,7 +68,7 @@ function userPlace() {
   mainDiv.classList = 'progress';
   const entrance = createProgressCircle('1', 'agreement');
   const span1 = createBarSpan();
-  const firstPhase = createProgressCircle('2', 'personal information');
+  const firstPhase = createProgressCircle('2', 'information');
   const span2 = createBarSpan();
   const adress = createProgressCircle('3', 'adress');
   const span3 = createBarSpan();
@@ -76,6 +76,13 @@ function userPlace() {
   const span4 = createBarSpan();
   const final = createProgressCircle('5', 'summery');
   let premium;
+  if (localStorage.getItem('premium')) {
+    premium = createProgressCircle('2', 'premium');
+    firstPhase.querySelector('.label').textContent = '3'
+    adress.querySelector('.label').textContent = '4'
+    photo.querySelector('.label').textContent = '5'
+    final.querySelector('.label').textContent = '6'
+  }
   if (localStorage.getItem('agree')) {
     entrance.querySelector('.label').textContent = '✓';
     entrance.classList = 'circle done';
@@ -88,15 +95,15 @@ function userPlace() {
     adress.querySelector('.label').textContent = '✓';
     adress.classList = 'circle done';
   }
-  if (localStorage.getItem('image')) {
+  if (localStorage.getItem('imageArray')) {
     photo.querySelector('.label').textContent = '✓';
     photo.classList = 'circle done';
   }
-
+  if(localStorage.getItem('DecidedPrimium')){
+    premium.querySelector('.label').textContent = '✓';
+    premium.classList = 'circle done';
+  }
   if (localStorage.getItem('premium')) {
-    photo.querySelector('.label').textContent = '5';
-    final.querySelector('.label').textContent = '6';
-    premium = createProgressCircle('2', 'premium');
     const span5 = createBarSpan();
     mainDiv.append(
       entrance,
@@ -170,6 +177,10 @@ function colorPlace(entrance, firstPhase, adress, photo, final,premium) {
   } else if (document.location.href.includes('phase-4')) {
     final.querySelector('.title').style.color = 'blue';
     final.querySelector('.title').style.backgroundColor = 'lightgreen';
+  }
+  else if (document.location.href.includes('premium')) {
+    premium.querySelector('.title').style.color = 'blue';
+    premium.querySelector('.title').style.backgroundColor = 'lightgreen';
   }
 }
 function createBarSpan() {
