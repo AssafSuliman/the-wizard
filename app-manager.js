@@ -82,18 +82,41 @@ function userPlace() {
     photo.querySelector('.label').textContent = '✓';
     photo.classList = 'circle done';
   }
+
   colorPlace(entrance, firstPhase, adress, photo, final);
-  mainDiv.append(
-    entrance,
-    span1,
-    firstPhase,
-    span2,
-    adress,
-    span3,
-    photo,
-    span4,
-    final
-  );
+  if (localStorage.getItem('premium')) {
+    firstPhase.querySelector('.label').textContent = '3';
+    adress.querySelector('.label').textContent = '4';
+    photo.querySelector('.label').textContent = '5';
+    final.querySelector('.label').textContent = '6';
+    const primium = createProgressCircle('2', 'primium');
+    const span5 = createBarSpan();
+    mainDiv.append(
+      entrance,
+      span1,
+      primium,
+      span5,
+      firstPhase,
+      span2,
+      adress,
+      span3,
+      photo,
+      span4,
+      final
+    );
+  } else {
+    mainDiv.append(
+      entrance,
+      span1,
+      firstPhase,
+      span2,
+      adress,
+      span3,
+      photo,
+      span4,
+      final
+    );
+  }
   document.querySelector('header').append(mainDiv);
 }
 userPlace();
