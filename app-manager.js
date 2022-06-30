@@ -81,17 +81,41 @@ function userPlace() {
     photo.querySelector('.label').textContent = '✓';
     photo.classList = 'circle done';
   }
-  mainDiv.append(
-    entrance,
-    span1,
-    firstPhase,
-    span2,
-    adress,
-    span3,
-    photo,
-    span4,
-    final
-  );
+  colorPlace(entrance,firstPhase,adress,photo,final)
+  if (localStorage.getItem('premium')){
+    firstPhase.querySelector('.label').textContent='3';
+    adress.querySelector('.label').textContent='4';
+    photo.querySelector('.label').textContent='5';
+    final.querySelector('.label').textContent='6';
+    const primium= createProgressCircle('2','primium');
+    const span5= createBarSpan();
+    mainDiv.append(
+      entrance,
+      span1,
+      primium,
+      span5,
+      firstPhase,
+      span2,
+      adress,
+      span3,
+      photo,
+      span4,
+      final
+    );
+  }
+  else{
+    mainDiv.append(
+      entrance,
+      span1,
+      firstPhase,
+      span2,
+      adress,
+      span3,
+      photo,
+      span4,
+      final
+    );
+  }
   document.querySelector('header').append(mainDiv);
 }
 userPlace();
@@ -106,6 +130,38 @@ function createProgressCircle(number, name) {
   title.textContent = name;
   circleDiv.append(label, title);
   return circleDiv;
+}
+function colorPlace(entrance,firstPhase,adress,photo,final) {
+  entrance.querySelector('.title').style.color = ''
+  entrance.querySelector('.title').style.backgroundColor = ''
+  firstPhase.querySelector('.title').style.color = ''
+  firstPhase.querySelector('.title').style.backgroundColor = ''
+  adress.querySelector('.title').style.color = ''
+  adress.querySelector('.title').style.backgroundColor = ''
+  photo.querySelector('.title').style.color = ''
+  photo.querySelector('.title').style.backgroundColor = ''
+  final.querySelector('.title').style.color = ''
+  final.querySelector('.title').style.backgroundColor = ''
+  if (document.location.href.includes('entrance')) {
+    entrance.querySelector('.title').style.color = 'blue'
+    entrance.querySelector('.title').style.backgroundColor = 'lightgreen'
+  }
+  else if (document.location.href.includes('phase-1')) {
+    firstPhase.querySelector('.title').style.color = 'blue'
+    firstPhase.querySelector('.title').style.backgroundColor = 'lightgreen'
+  }
+  else if (document.location.href.includes('phase-2')) {
+    adress.querySelector('.title').style.color = 'blue'
+    adress.querySelector('.title').style.backgroundColor = 'lightgreen'
+  }
+  else if (document.location.href.includes('phase-3')) {
+    photo.querySelector('.title').style.color = 'blue'
+    photo.querySelector('.title').style.backgroundColor = 'lightgreen'
+  }
+  else if (document.location.href.includes('phase-4')) {
+    final.querySelector('.title').style.color = 'blue'
+    final.querySelector('.title').style.backgroundColor = 'lightgreen'
+  }
 }
 function createBarSpan() {
   const span = document.createElement('span');
