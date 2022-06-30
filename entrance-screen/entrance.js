@@ -20,6 +20,7 @@ if(savedAgree){
 function newPage(){
     if(premiumWiz.checked){
         continueBtn.setAttribute('action', `${document.location.origin}/the-wizard/premium/premium.html`)
+        startNewWizard()
     }
     else {
         continueBtn.setAttribute('action', `${document.location.origin}/the-wizard/phase-1/phase1.html`)
