@@ -81,3 +81,7 @@ section {
 #result > div {
   margin: 5px;
 }
+
+.image-container > img {
+  margin-left: 10px;
+}
