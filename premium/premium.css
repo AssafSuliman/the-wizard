@@ -1,0 +1,58 @@
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    border: solid 2px grey;
+    margin:50px 0;
+    padding:30px;
+    border-radius: 5px;
+    width: 500px;
+}
+#buttons{
+    margin-top:30px;
+    display: flex;
+    justify-content: space-between;
+}
+.price::after{
+    content: '$';
+}
+#previousButton, #continue-btn{
+    border: none;
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.choice{
+    align-self: center;
+    border: solid 2px grey;
+    margin:2px 0;
+    padding:30px;
+    border-radius: 5px;
+    width: 300px;
+    cursor: pointer;
+}
+.monthlyChoice{
+    background-image: linear-gradient(purple,rgb(199, 122, 199),purple);
+}
+.trialChoice{
+    background-image: linear-gradient(rgb(71, 71, 249),rgb(131, 209, 233),rgb(71, 71, 249));
+}
+.annualChoice{
+    background-image: linear-gradient(green,rgb(132, 230, 132),green);
+}
+.currentSelction{
+    display: flex;
+    flex-direction: column;
+}
+.coiceSelected{
+    box-shadow: 0 1px 10px;
+}
