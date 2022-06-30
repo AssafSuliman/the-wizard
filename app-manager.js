@@ -72,6 +72,7 @@ function userPlace() {
     photo.querySelector('.label').textContent = '✓';
     photo.classList = 'circle done';
   }
+  colorPlace(entrance,firstPhase,adress,photo,final)
   mainDiv.append(
     entrance,
     span1,
@@ -97,6 +98,38 @@ function createProgressCircle(number, name) {
   title.textContent = name;
   circleDiv.append(label, title);
   return circleDiv;
+}
+function colorPlace(entrance,firstPhase,adress,photo,final) {
+  entrance.querySelector('.title').style.color = ''
+  entrance.querySelector('.title').style.backgroundColor = ''
+  firstPhase.querySelector('.title').style.color = ''
+  firstPhase.querySelector('.title').style.backgroundColor = ''
+  adress.querySelector('.title').style.color = ''
+  adress.querySelector('.title').style.backgroundColor = ''
+  photo.querySelector('.title').style.color = ''
+  photo.querySelector('.title').style.backgroundColor = ''
+  final.querySelector('.title').style.color = ''
+  final.querySelector('.title').style.backgroundColor = ''
+  if (document.location.href.includes('entrance')) {
+    entrance.querySelector('.title').style.color = 'blue'
+    entrance.querySelector('.title').style.backgroundColor = 'lightgreen'
+  }
+  else if (document.location.href.includes('phase-1')) {
+    firstPhase.querySelector('.title').style.color = 'blue'
+    firstPhase.querySelector('.title').style.backgroundColor = 'lightgreen'
+  }
+  else if (document.location.href.includes('phase-2')) {
+    adress.querySelector('.title').style.color = 'blue'
+    adress.querySelector('.title').style.backgroundColor = 'lightgreen'
+  }
+  else if (document.location.href.includes('phase-3')) {
+    photo.querySelector('.title').style.color = 'blue'
+    photo.querySelector('.title').style.backgroundColor = 'lightgreen'
+  }
+  else if (document.location.href.includes('phase-4')) {
+    final.querySelector('.title').style.color = 'blue'
+    final.querySelector('.title').style.backgroundColor = 'lightgreen'
+  }
 }
 function createBarSpan() {
   const span = document.createElement('span');
