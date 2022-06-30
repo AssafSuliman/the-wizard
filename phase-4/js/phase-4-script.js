@@ -16,6 +16,8 @@ const carousel = document.querySelector('#carousel-inner')
 const personalDetails = JSON.parse(localStorage.getItem('phase1Data'));
 const adress = JSON.parse(localStorage.getItem('phase-2'));
 const photos = JSON.parse(localStorage.getItem('imageArray'));
+const img1 = document.querySelector('#firstImg')
+img1.src = photos[0]
 const hobbies = JSON.parse(localStorage.getItem('checkedHobbies'));
 const pPersonal = document.createElement('p');
 console.log(adress);
@@ -34,11 +36,12 @@ imgPhoto.src = photo;
 imgPhoto.alt = 'userphoto';
 imgPhoto.style.height = '5.5vw';
 imgPhoto.style.width = '5.5vw'; */
-for(let photo of photos){
+
+for(let i = 1; i<photos.length; i++){
   const div = document.createElement('div')
   div.classList.add('carousel-item')
   const img = document.createElement('img')
-  img.src = photo
+  img.src = photos[i]
   img.classList.add('d-block')
   img.classList.add('w-100')
   img.alt = 'userphoto'
