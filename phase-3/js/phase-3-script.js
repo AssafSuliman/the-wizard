@@ -8,6 +8,11 @@ let addedResume = false;
 let checked = localStorage.getItem('checkedHobbies') || [];
 let imageUrl = [];
 let resumeSrc = JSON.parse(localStorage.getItem('checkedHobbies')) || null;
+let linkedin;
+
+document.querySelector('.linkedin').addEventListener('change', e => {
+  linkedin = e.target.value;
+});
 
 window.addEventListener('load', e => {
   if (localStorage.getItem('imageArray') && !localStorage.getItem('premium')) {
@@ -121,11 +126,18 @@ document.querySelector('button[type=submit]').addEventListener('click', e => {
       setPhase3Resume(JSON.parse(localStorage.getItem('imageArray')));
     }
 
-    const formAction = document.querySelector('form');
-    formAction.setAttribute(
-      'action',
-      `${document.location.origin}/the-wizard/phase-4/phase-4.html`
-    );
+    if (!isLinkedinProfileUrl(linkedin)) {
+      const span = document.createElement('span');
+      span.appendChild(document.createTextNode('*Not a valid Linkedin URL'));
+      document.querySelector('.linkedin-section').appendChild(span);
+      e.preventDefault();
+    } else {
+      const formAction = document.querySelector('form');
+      formAction.setAttribute(
+        'action',
+        `${document.location.origin}/the-wizard/phase-4/phase-4.html`
+      );
+    }
   }
 });
 
@@ -191,6 +203,17 @@ const createCheckboxEvents = checkBoxes => {
       // localStorage.setItem('checkedHobbies', JSON.stringify(checked));
     });
   });
+};
+
+const isRegexExactMatch = (value, regexp) => {
+  const res = value.match(regexp);
+  return res && res[0] && res[0] === res.input;
+};
+
+const isLinkedinProfileUrl = value => {
+  const linkedInProfileURLRegExp =
+    '(https?:\\/\\/(www.)?linkedin.com\\/(mwlite\\/|m\\/)?in\\/[a-zA-Z0-9_.-]+\\/?)';
+  return !!isRegexExactMatch(value, linkedInProfileURLRegExp);
 };
 
 //creates 17 hobbies
