@@ -185,5 +185,14 @@ function canYouMoveToThisPage(previousPage, url) {
 }
 
 function startNewWizard() {
-  localStorage.clear();
+  localStorage.removeItem("checkedHobbies")
+  localStorage.removeItem("agree")
+  localStorage.removeItem("phase-2")
+  localStorage.removeItem("phase3")
+  localStorage.removeItem("DecidedPrimium")
+  localStorage.removeItem("premium")
+  localStorage.removeItem("phase1Data")
+  localStorage.removeItem("phase1Data")
+  localStorage.removeItem("data")
+  localStorage.removeItem("imageArray")
 }
