@@ -1,5 +1,5 @@
-const setPhase3 = (imgUrl, hobbiesArr) => {
-  localStorage.setItem('image', JSON.stringify(imgUrl));
+const setPhase3 = (imageArray, hobbiesArr) => {
+  localStorage.setItem('imageArray', JSON.stringify(imageArray));
   localStorage.setItem('checkedHobbies', JSON.stringify(hobbiesArr));
   localStorage.setItem('phase3', JSON.stringify('v'));
 };
@@ -7,9 +7,10 @@ const setPhase3 = (imgUrl, hobbiesArr) => {
 const getPhase3 = () => {
   if (localStorage.getItem('phase3')) {
     const hobbies = localStorage.getItem('checkedHobbies');
-    const fileUpload = document.querySelector('#fileUpload').nextElementSibling;
-    fileUpload.src = JSON.parse(localStorage.getItem('image'));
-    const fileInput = document.querySelector('#fileUpload');
+    // const fileUpload = document.querySelector('#fileUpload').nextElementSibling;
+    const imageArray = JSON.parse(localStorage.getItem('imageArray'));
+    setSelectedImages(imageArray);
+    const fileInput = document.querySelector('#files');
     fileInput.removeAttribute('required');
     const hobbieInputs = document.querySelectorAll('input[type=checkbox]');
     for (const hobbieInput of hobbieInputs) {
@@ -17,6 +18,15 @@ const getPhase3 = () => {
         hobbieInput.checked = true;
       }
     }
+  }
+};
+
+const setSelectedImages = imageArray => {
+  const output = document.getElementById('result');
+  for (const image of imageArray) {
+    const div = document.createElement('div');
+    div.innerHTML = "<img class='thumbnail' src='" + image + "'" + '/>';
+    output.insertBefore(div, null);
   }
 };
 function saveEntranceData() {
@@ -72,7 +82,7 @@ function userPlace() {
     photo.querySelector('.label').textContent = '✓';
     photo.classList = 'circle done';
   }
-  colorPlace(entrance,firstPhase,adress,photo,final)
+  colorPlace(entrance, firstPhase, adress, photo, final);
   mainDiv.append(
     entrance,
     span1,
@@ -99,36 +109,32 @@ function createProgressCircle(number, name) {
   circleDiv.append(label, title);
   return circleDiv;
 }
-function colorPlace(entrance,firstPhase,adress,photo,final) {
-  entrance.querySelector('.title').style.color = ''
-  entrance.querySelector('.title').style.backgroundColor = ''
-  firstPhase.querySelector('.title').style.color = ''
-  firstPhase.querySelector('.title').style.backgroundColor = ''
-  adress.querySelector('.title').style.color = ''
-  adress.querySelector('.title').style.backgroundColor = ''
-  photo.querySelector('.title').style.color = ''
-  photo.querySelector('.title').style.backgroundColor = ''
-  final.querySelector('.title').style.color = ''
-  final.querySelector('.title').style.backgroundColor = ''
+function colorPlace(entrance, firstPhase, adress, photo, final) {
+  entrance.querySelector('.title').style.color = '';
+  entrance.querySelector('.title').style.backgroundColor = '';
+  firstPhase.querySelector('.title').style.color = '';
+  firstPhase.querySelector('.title').style.backgroundColor = '';
+  adress.querySelector('.title').style.color = '';
+  adress.querySelector('.title').style.backgroundColor = '';
+  photo.querySelector('.title').style.color = '';
+  photo.querySelector('.title').style.backgroundColor = '';
+  final.querySelector('.title').style.color = '';
+  final.querySelector('.title').style.backgroundColor = '';
   if (document.location.href.includes('entrance')) {
-    entrance.querySelector('.title').style.color = 'blue'
-    entrance.querySelector('.title').style.backgroundColor = 'lightgreen'
-  }
-  else if (document.location.href.includes('phase-1')) {
-    firstPhase.querySelector('.title').style.color = 'blue'
-    firstPhase.querySelector('.title').style.backgroundColor = 'lightgreen'
-  }
-  else if (document.location.href.includes('phase-2')) {
-    adress.querySelector('.title').style.color = 'blue'
-    adress.querySelector('.title').style.backgroundColor = 'lightgreen'
-  }
-  else if (document.location.href.includes('phase-3')) {
-    photo.querySelector('.title').style.color = 'blue'
-    photo.querySelector('.title').style.backgroundColor = 'lightgreen'
-  }
-  else if (document.location.href.includes('phase-4')) {
-    final.querySelector('.title').style.color = 'blue'
-    final.querySelector('.title').style.backgroundColor = 'lightgreen'
+    entrance.querySelector('.title').style.color = 'blue';
+    entrance.querySelector('.title').style.backgroundColor = 'lightgreen';
+  } else if (document.location.href.includes('phase-1')) {
+    firstPhase.querySelector('.title').style.color = 'blue';
+    firstPhase.querySelector('.title').style.backgroundColor = 'lightgreen';
+  } else if (document.location.href.includes('phase-2')) {
+    adress.querySelector('.title').style.color = 'blue';
+    adress.querySelector('.title').style.backgroundColor = 'lightgreen';
+  } else if (document.location.href.includes('phase-3')) {
+    photo.querySelector('.title').style.color = 'blue';
+    photo.querySelector('.title').style.backgroundColor = 'lightgreen';
+  } else if (document.location.href.includes('phase-4')) {
+    final.querySelector('.title').style.color = 'blue';
+    final.querySelector('.title').style.backgroundColor = 'lightgreen';
   }
 }
 function createBarSpan() {
@@ -139,10 +145,9 @@ function createBarSpan() {
 
 function canYouMoveToThisPage(previousPage, url) {
   if (!localStorage.getItem(previousPage)) {
-    window.location.replace(`${document.location.origin}/the-wizard/${url}`)
+    window.location.replace(`${document.location.origin}/the-wizard/${url}`);
   }
 }
-
 
 function startNewWizard() {
   localStorage.clear();
