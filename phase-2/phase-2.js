@@ -14,6 +14,7 @@ const citySpan = document.querySelector("#citySpan")
 const streetSpan = document.querySelector("#streetSpan")
 const localStorageData = JSON.parse(getPhase2LocalStorage())
 
+const streetRegex = /[a-zA-Z -.]+[a-zA-Z]/
 
 function loadInputData(){
     if(localStorageData){
@@ -28,9 +29,12 @@ const getData = async data => {
     return response.json()
 }
 
+async function run() {
+    data = await getData()
+}
 
 (async () => {
-    data = await getData()
+   await run()
    createCitiesOptions()
    loadInputData()
 })();
@@ -76,7 +80,7 @@ function cityValidation(){
 }
 
 function streetValidation(){
-    if(streetNameInput.value ==""){
+    if(!streetRegex.test(streetNameInput.value)){
         showError(streetSpan)
         return false
     } else {
