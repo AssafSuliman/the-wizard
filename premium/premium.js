@@ -58,11 +58,10 @@ function showCurrentChoice(element){
     document.querySelector('.coiceSelected')?.classList.remove('coiceSelected')
     element.classList.add('coiceSelected')
 }
-const continueBtn= document.querySelector('#continue-btn')
-continueBtn.setAttribute('action', `${document.location.origin}/the-wizard/phase-1/phase-1.html`)
-const previousBtn= document.querySelector('#previousButton')
-previousBtn.setAttribute('action', `${document.location.origin}/the-wizard/phase-2/phase-2.html`)
-continueBtn.addEventListener('click',function(e){
+const continueBtn= document.querySelector('form')
+continueBtn.setAttribute('action', `${document.location.origin}/the-wizard/phase-1/phase1.html`)
+document.querySelector('#previousButton').setAttribute('href', `${document.location.origin}/the-wizard/entrance-screen/entrance.html`)
+continueBtn.addEventListener('submit',function(e){
     e.preventDefault
     if (document.querySelector('.currentSelction')){
         localStorage.setItem('DecidedPrimium','checked')
