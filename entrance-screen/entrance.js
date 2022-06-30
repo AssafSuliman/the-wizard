@@ -3,8 +3,12 @@ const premiumWiz = document.querySelector('#premium')
 const savedPremium = getPremium()
 if(savedPremium){
     premiumWiz.checked = true
+    continueBtn.setAttribute('action', `${document.location.origin}/the-wizard/premium/premium.html`)
 }
-newPage()
+else{
+    continueBtn.setAttribute('action', `${document.location.origin}/the-wizard/phase-1/phase1.html`)
+}
+
 continueBtn.addEventListener('submit', nextPage)
 const agree = document.querySelector('#agree')
 premiumWiz.addEventListener('click', newPage)
@@ -16,6 +20,7 @@ if(savedAgree){
 function newPage(){
     if(premiumWiz.checked){
         continueBtn.setAttribute('action', `${document.location.origin}/the-wizard/premium/premium.html`)
+        startNewWizard()
     }
     else {
         continueBtn.setAttribute('action', `${document.location.origin}/the-wizard/phase-1/phase1.html`)
