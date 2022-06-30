@@ -1,17 +1,17 @@
 const trialDiv= document.querySelector('.trialChoice')
-trialDiv.addEventListener('click',function(e){
+trialDiv.addEventListener('click',function(){
     showCurrentChoice(trialDiv)
     document.querySelector('.currentSelction')?.remove()
     trialDiv.append(buildSection(20,endTime('trial')))
 })
 const monthlyDiv=document.querySelector('.monthlyChoice')
-monthlyDiv.addEventListener('click',function(e){
+monthlyDiv.addEventListener('click',function(){
     showCurrentChoice(monthlyDiv)
     document.querySelector('.currentSelction')?.remove()
     monthlyDiv.append(buildSection(80,endTime('monthly')))
 })
 const annualDiv=document.querySelector('.annualChoice')
-annualDiv.addEventListener('click',function(e){
+annualDiv.addEventListener('click',function(){
     showCurrentChoice(annualDiv)
     document.querySelector('.currentSelction')?.remove()
     annualDiv.append(buildSection(120,endTime('annual')))
@@ -58,3 +58,13 @@ function showCurrentChoice(element){
     document.querySelector('.coiceSelected')?.classList.remove('coiceSelected')
     element.classList.add('coiceSelected')
 }
+const continueBtn= document.querySelector('#continue-btn')
+continueBtn.setAttribute('action', `${document.location.origin}/the-wizard/phase-1/phase-1.html`)
+const previousBtn= document.querySelector('#previousButton')
+previousBtn.setAttribute('action', `${document.location.origin}/the-wizard/phase-2/phase-2.html`)
+continueBtn.addEventListener('click',function(e){
+    e.preventDefault
+    if (document.querySelector('.currentSelction')){
+        localStorage.setItem('DecidedPrimium','checked')
+    }
+})
