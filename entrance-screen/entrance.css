@@ -10,6 +10,11 @@ form{
     margin:50px 0;
     padding:30px;
     border-radius: 5px;
+    box-shadow: 0 1px 10px black;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh5jSZ-IE5xavUgxWNahsGYqRaQH40M2fh6A&usqp=CAU');
+    background-size: cover;
+    color: white;
+    text-shadow: 1px 1px 3px black;
 }
 form h3{
     width:100%

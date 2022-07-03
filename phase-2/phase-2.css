@@ -9,6 +9,9 @@ form {
     padding: 50px;
     border: 2px solid black;
     border-radius: 5px;
+    box-shadow: 0 1px 10px;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGZGMOthcsEJxDADZhZFCcrH8KT97qYo4Mpg&usqp=CAU');
+    background-size: cover;
 }
 
 .input-group {
