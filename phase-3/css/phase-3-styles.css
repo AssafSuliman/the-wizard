@@ -84,3 +84,7 @@ section {
 #result>div {
   margin: 5px;
 }
+
+.background-white{
+  background-color: white;
+}

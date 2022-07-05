@@ -124,7 +124,7 @@ const setHobbies = hobbies => {
     checkBox.className = 'btn-check';
     checkBox.id = `btncheck${counter}`;
     checkBox.setAttribute('autocomplete', 'off');
-    label.classList.add('btn', 'btn-outline-dark');
+    label.classList.add('btn', 'btn-outline-dark', 'background-white');
     label.setAttribute('for', `btncheck${counter}`);
     label.appendChild(document.createTextNode(hobbie.hobbie));
     checkBoxDiv.appendChild(checkBox);

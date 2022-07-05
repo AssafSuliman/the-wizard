@@ -148,20 +148,6 @@ function createProgressCircle(number, name) {
   return circleDiv;
 }
 function colorPlace(entrance, firstPhase, adress, photo, final,premium) {
-  if (localStorage.getItem('premium')){
-    premium.querySelector('.title').style.color = '';
-    premium.querySelector('.title').style.backgroundColor = '';
-  }
-  entrance.querySelector('.title').style.color = '';
-  entrance.querySelector('.title').style.backgroundColor = '';
-  firstPhase.querySelector('.title').style.color = '';
-  firstPhase.querySelector('.title').style.backgroundColor = '';
-  adress.querySelector('.title').style.color = '';
-  adress.querySelector('.title').style.backgroundColor = '';
-  photo.querySelector('.title').style.color = '';
-  photo.querySelector('.title').style.backgroundColor = '';
-  final.querySelector('.title').style.color = '';
-  final.querySelector('.title').style.backgroundColor = '';
   if (document.location.href.includes('entrance')) {
     entrance.querySelector('.title').style.color = 'blue';
     entrance.querySelector('.title').style.backgroundColor = 'lightgreen';
