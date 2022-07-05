@@ -17,7 +17,7 @@
     <main>
         <form>
             <section class="image-section">
-                <div>
+                <div class="image-container">
                     <label for="files" class="custom-file-upload">
                         <img src="https://img.icons8.com/ios-glyphs/30/000000/image.png" />
                     </label>
@@ -25,11 +25,31 @@
                     <output id='result' />
                 </div>
             </section>
+            <section class="resume-section">
+                <div class="resume-container">
+                    <label for="files2" class="custom-file-upload">
+                        <img src="https://img.icons8.com/ios-glyphs/30/000000/image.png" /> Upload Resume
+                    </label>
+                    <input id="files2" type="file" required />
+                </div>
+            </section>
             <section class="hobbies-section">
                 <label for="">Choose your hobbies:</label>
                 <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 
                 </div>
+            </section>
+            <section class="linkedin-section">
+
+                <label class="linkedin-label" for="basic-url">Your Linkedin URL:</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">https://linkedin.com/username/</span>
+                    </div>
+                    <input type="text" class="form-control linkedin" id="basic-url" aria-describedby="basic-addon3"
+                        required>
+                </div>
+
             </section>
             <section class="buttons">
                 <a class="prev-page">Previous page</a>

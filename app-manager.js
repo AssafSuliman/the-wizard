@@ -4,6 +4,10 @@ const setPhase3 = (imageArray, hobbiesArr) => {
   localStorage.setItem('phase3', JSON.stringify('v'));
 };
 
+const setPhase3Resume = resumeUrl => {
+  localStorage.setItem('resumeUrl', JSON.stringify(resumeUrl));
+};
+
 const getPhase3 = () => {
   if (localStorage.getItem('phase3')) {
     const hobbies = localStorage.getItem('checkedHobbies');
@@ -12,6 +16,8 @@ const getPhase3 = () => {
     setSelectedImages(imageArray);
     const fileInput = document.querySelector('#files');
     fileInput.removeAttribute('required');
+    const fileInput2 = document.querySelector('#files2');
+    fileInput2.removeAttribute('required');
     const hobbieInputs = document.querySelectorAll('input[type=checkbox]');
     for (const hobbieInput of hobbieInputs) {
       if (hobbies.includes(hobbieInput.nextSibling.innerHTML)) {
@@ -20,14 +26,14 @@ const getPhase3 = () => {
     }
   }
 };
-function savePremium(){
-  localStorage.setItem('premium', 'checked')
+function savePremium() {
+  localStorage.setItem('premium', 'checked');
 }
-function getPremium(){
-  return localStorage.getItem('premium')
+function getPremium() {
+  return localStorage.getItem('premium');
 }
-function removePremium(){
-  localStorage.removeItem('premium')
+function removePremium() {
+  localStorage.removeItem('premium');
 }
 
 const setSelectedImages = imageArray => {
